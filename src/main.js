@@ -688,7 +688,7 @@ function fastLoop(){
     const date = new Date();
 
     breakdown.p['Global'] = {};
-    var global_multiplier = 5;
+    var global_multiplier = 1;
     let applyPlasmid = false;
     let pBonus = plasmidBonus('raw');
     if (global.race.Plasmid.count > 0 && ((global.race.universe !== 'antimatter') || (global.genes['bleed'] && global.race.universe === 'antimatter'))){
@@ -700,7 +700,7 @@ function fastLoop(){
         applyPlasmid = true;
     }
     if (applyPlasmid){
-        global_multiplier *= pBonus[0];
+        global_multiplier += pBonus[0];
     }
     if (global.race['no_plasmid'] || global.race.universe === 'antimatter'){
         if (((global.race['cataclysm'] || global.race['orbit_decayed']) && global.space['ziggurat'] && global.space.ziggurat.count) || (global.city['temple'] && global.city['temple'].count)){
@@ -952,7 +952,7 @@ function fastLoop(){
         Nanite: {},
     };
 
-    var time_multiplier = 0.25;
+    var time_multiplier = 5;
 
     if (global.race.species === 'protoplasm'){
         // Early Evolution Game
